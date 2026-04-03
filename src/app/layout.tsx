@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   keywords: ["student dashboard", "study planner", "GPA calculator", "academic management", "study groups"],
 };
 
+import { AuthProvider } from "@/contexts/AuthContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -15,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen bg-[#f8fafb] text-gray-800 antialiased">
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
